@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import PokemonList from './pages/pokemon-list';
-import PokemonDetail from './pages/pokemon-details';
 import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import PageNotFound from './pages/page-not-found';
-import PokemonEdit from './pages/pokemon-edit';
-
+import AccueilPage from './pages/AccueilPage';
+import UsersList from './pages/UsersList';
+import LoginPage from './pages/LoginPage';
+import UserForm from './pages/userForm';
 
 const App: FunctionComponent = () => {
   
@@ -13,15 +12,15 @@ const App: FunctionComponent = () => {
       <div>
         <nav>
           <div className="nav-wrapper teal">
-            <Link to="/" className="brand-logo center">Pokédex</Link>
+            <div className="brand-logo center">HISP Africa test App</div>
           </div>
         </nav>
       <Switch>
-        <Route exact path="/" component={PokemonList}/>
-        <Route exact path="/pokemons" component={PokemonList}/>
-        <Route exact path="/pokemons/edit/:id" component={PokemonEdit}/>
-        <Route path="/pokemons/:id" component={PokemonDetail}/>
-        <Route component={PageNotFound}/>
+        <Route exact path="/" component={LoginPage}/>
+        <Route exact path="/accueil" component={AccueilPage}/>
+        <Route exact path="/users" component={UsersList}/>
+        <Route path="/user/add" component={UserForm}/>
+        {/* <Route component={PageNotFound}/> */}
       </Switch>
       </div>
     </Router>
